@@ -12,6 +12,25 @@ public:
     }
 };
 
+//Code-2 T.C : O(nlogn)
+//       S.C : O(1)
+class Solution {
+public:
+    int findMaxK(vector<int>& nums) {
+        sort(begin(nums),end(nums));
+        int i=0,j=nums.size()-1;
+        while(i<j){
+            if((-nums[i])==nums[j])
+                return nums[j];
+            else if(-nums[i]<nums[j])
+                j--;
+            else
+                i++;
+        }
+        return -1;
+    }
+};
+
 /*
     Given an integer array nums that does not contain any zeros, find the largest positive integer k such that -k also exists in the array.
     Return the positive integer k. If there is no such integer, return -1.
